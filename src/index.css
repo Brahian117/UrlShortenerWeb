@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== Backgrounds ===== */
+  --color-bg-main: #1a1f26;        /* antes #0f1115 */
+  --color-bg-surface: #242a36;     /* antes #181b21 */
+  --color-bg-input: #2c3342;       /* antes #1f232b */
+
+  /* ===== Text ===== */
+  --color-text-main: #e5e7eb;      /* texto principal */
+  --color-text-muted: #a1a1aa;     /* texto secundario */
+
+  /* ===== Borders ===== */
+  --color-border-main: #3a4150;
+
+  /* ===== Brand (Green) ===== */
+  --color-primary: #22c55e;        /* verde base */
+  --color-primary-hover: #16a34a;
+  --color-primary-soft: #14532d;
+
+  /* ===== Feedback ===== */
+  --color-error: #ef4444;
+  --color-success: #22c55e;
+}
+@layer components {
+  .btn-primary {
+    @apply
+      inline-flex items-center justify-center
+      rounded-lg
+      bg-(--color-primary)
+      px-4 py-3
+      text-sm font-semibold
+      text-black
+      transition
+      hover:bg-primary-hover
+      hover:cursor-pointer
+      focus:outline-none
+      focus:ring-2
+      focus:ring-primary
+      focus:ring-offset-2
+      focus:ring-offset-bg-main;
+  }
+
+  .input-base {
+    @apply
+      w-full
+      rounded-lg
+      border
+      border-border-main
+      bg-bg-input
+      px-4 py-3
+      text-sm
+      text-text-main
+      placeholder:text-text-muted
+      outline-none
+      focus:ring-2
+      focus:ring-primary;
+  }
+
+  .card {
+    @apply
+      rounded-xl
+      border
+      border-border-main
+      bg-bg-surface
+      p-6;
+  }
+}
