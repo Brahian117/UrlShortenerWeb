@@ -15,7 +15,7 @@ export const generateShortLink = async (longUrl: string) => {
     }
 
     const data = await response.json();
-    data.shortenedUrl = settings.domain + data.shortenedUrl;
+    data.shortenedUrl =`${settings.domain}/${data.shortenedUrl}`;
     return data;
   } catch (error) {
     console.error(error);

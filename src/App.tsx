@@ -1,23 +1,14 @@
-import { Header } from "./components/layout/Header";
-import { Footer } from "./components/layout/Footer";
-import { Hero } from "./components/sections/Hero";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { RedirectPage } from "./pages/RedirectPage";
 
 export const App = () => {
-      return (
-    <div
-      className="
-        bg-blue-900
-      "
-    >
-      <Header />
-
-      <main className="scroll-smooth">
-        <section id="hero"><Hero /></section>
-
-      </main>
-
-      <Footer />
-    </div>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:code" element={<RedirectPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
