@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import settings from "../settings/appsettings"
+
 
 export function RedirectPage() {
   const { code } = useParams();
-const url = `${import.meta.env.VITE_API_URL}/${code}`;
+const url = `${settings.apiUrl}/${code}`;
 
   useEffect(() => {
     async function resolve() {
@@ -22,7 +24,7 @@ const url = `${import.meta.env.VITE_API_URL}/${code}`;
     }
 
     if (code) resolve();
-  }, [code]);
+  }, [code, url]);
 
-  return <p className="text-white text-center mt-10">Redirigiendo…</p>;
+  return <p className="text-white text-center mt-10">Redirecting…</p>;
 }
