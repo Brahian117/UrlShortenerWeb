@@ -2,9 +2,10 @@ import settings from "../settings/appsettings"
 
 export const wakeUpDb = async () => {
       try {
-        await fetch(`${settings.wakeupUrl}`);
-        console.log("DB awake!");
+       const response = await fetch(`${settings.wakeupUrl}`);
+       console.log(response.text());
       } catch (error) {
         console.error("Timing error", error);
+        
       }
     };
